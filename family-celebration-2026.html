@@ -410,13 +410,33 @@
 
   .ph-frame svg{width:30px; height:30px; stroke:var(--ink-soft); opacity:0.6;}
 
-  .hero-photo{
-    width:150px;
-    height:150px;
-    margin:0 auto 28px;
+  .hero-photos{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:16px;
+    margin:0 auto 14px;
   }
 
-  .hero-photo .ph-frame{border-radius:50%;}
+  .hero-photo-frame{
+    width:clamp(92px, 24vw, 140px);
+  }
+
+  .hero-photo-frame .ph-frame{
+    width:clamp(92px, 24vw, 140px);
+    height:clamp(92px, 24vw, 140px);
+    border-radius:50%;
+  }
+
+  .hero-year{
+    display:block;
+    text-align:center;
+    font-family:var(--body);
+    font-size:12px;
+    letter-spacing:0.03em;
+    color:var(--ink-soft);
+    margin-top:8px;
+  }
 
   figure{margin:0;}
 
@@ -541,12 +561,17 @@
 
 <header class="cover">
   <div class="wrap">
-    <figure class="hero-photo">
-      <div class="ph-frame">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-      </div>
-      <figcaption class="ph-caption">Khushbu &amp; Imtiyaz</figcaption>
-    </figure>
+    <div class="hero-photos">
+      <figure class="hero-photo-frame">
+        <img src="couple-2011.jpg" alt="Khushbu and Imtiyaz, 2011" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        <figcaption class="hero-year">2011</figcaption>
+      </figure>
+      <figure class="hero-photo-frame">
+        <img src="family-2026.jpg" alt="Khushbu, Imtiyaz and family, 2026" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        <figcaption class="hero-year">2026</figcaption>
+      </figure>
+    </div>
+    <p class="ph-caption">Khushbu &amp; Imtiyaz</p>
     <p class="kicker">You're invited — Guntur family</p>
     <h1>Khushbu &amp; Imtiyaz<em>Fifteen years, and a brand new home</em></h1>
     <p class="lede">Five days in Bangalore — a mehendi evening, our 15th anniversary with Arzaan's birthday, the housewarming of our new home, and a family day out. We'd love for you to be part of all of it.</p>
