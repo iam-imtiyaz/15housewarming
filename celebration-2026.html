@@ -16,8 +16,8 @@
     --ink:#2A1B12;
     --ink-soft:#6B5842;
     --line:#C9A66B;
-    --accent:#7A1F2B;
-    --accent-soft:#C89B3C;
+    --accent:#A85D14;
+    --accent-soft:#E3B36A;
     --display:'Cormorant Garamond', serif;
     --body:'Work Sans', sans-serif;
   }
@@ -49,17 +49,31 @@
   /* ---------- Cover ---------- */
 
   .cover{
-    padding:96px 24px 72px;
+    padding:88px 24px 72px;
     text-align:center;
     background:
-      radial-gradient(circle at 20% 15%, rgba(122,31,43,0.06), transparent 40%),
-      radial-gradient(circle at 85% 80%, rgba(200,155,60,0.10), transparent 45%),
+      radial-gradient(circle at 20% 15%, rgba(168,93,20,0.07), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(227,179,106,0.16), transparent 45%),
       var(--paper);
     border-bottom:1px solid var(--line);
   }
 
+  .hero-photo{
+    width:clamp(120px, 34vw, 170px);
+    height:clamp(120px, 34vw, 170px);
+    margin:0 auto 28px;
+  }
+
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
+    box-shadow:0 0 0 1px var(--line), 0 10px 26px rgba(42,27,18,0.14);
+  }
+
   .cover .kicker{
-    font-family:var(--body);
     font-size:15px;
     letter-spacing:0.02em;
     color:var(--ink-soft);
@@ -104,9 +118,7 @@
 
   /* ---------- Section shells ---------- */
 
-  section{
-    padding:64px 0;
-  }
+  section{padding:64px 0;}
 
   .section-head h2{
     font-family:var(--display);
@@ -124,12 +136,6 @@
   }
 
   /* ---------- Highlights ---------- */
-
-  .highlight-list{
-    display:flex;
-    flex-direction:column;
-    gap:0;
-  }
 
   .highlight{
     display:grid;
@@ -169,7 +175,7 @@
     font-size:15px;
   }
 
-  /* ---------- Itinerary tabs ---------- */
+  /* ---------- Itinerary ---------- */
 
   .itinerary{
     background:var(--paper-deep);
@@ -187,7 +193,8 @@
   }
 
   .tab{
-    flex:0 0 auto;
+    flex:1 1 0;
+    min-width:104px;
     font-family:var(--body);
     font-size:14px;
     font-weight:500;
@@ -261,6 +268,7 @@
     display:flex;
     flex-direction:column;
     gap:16px;
+    margin:0;
   }
 
   .row{
@@ -278,9 +286,7 @@
     padding-top:2px;
   }
 
-  .row dd{
-    margin:0;
-  }
+  .row dd{margin:0;}
 
   .venue{
     margin-top:24px;
@@ -299,10 +305,7 @@
     flex-wrap:wrap;
   }
 
-  .venue-card .v-name{
-    font-weight:600;
-    font-size:15px;
-  }
+  .venue-card .v-name{font-weight:600; font-size:15px;}
 
   .venue-card .v-addr{
     color:var(--ink-soft);
@@ -325,16 +328,16 @@
   .maplink:hover{background:var(--accent); color:#fff;}
 
   .note{
-    margin-top:18px;
-    font-size:13px;
+    margin:18px 0 0;
+    font-size:14px;
     color:var(--ink-soft);
     font-style:italic;
   }
 
-  /* ---------- Footer / RSVP ---------- */
+  /* ---------- Footer ---------- */
 
   footer{
-    padding:72px 24px 56px;
+    padding:72px 24px 96px;
     text-align:center;
   }
 
@@ -372,7 +375,7 @@
     height:52px;
     border-radius:50%;
     border:none;
-    background:#7A1F2B;
+    background:var(--accent);
     color:#fff;
     display:flex;
     align-items:center;
@@ -384,15 +387,15 @@
 
   .music-toggle:hover{transform:scale(1.06);}
   .music-toggle:active{transform:scale(0.95);}
-  .music-toggle:focus-visible{outline:3px solid #C89B3C; outline-offset:3px;}
+  .music-toggle:focus-visible{outline:3px solid var(--accent-soft); outline-offset:3px;}
 
   .music-toggle svg{width:22px; height:22px;}
 
   .music-toggle .icon-pause{display:none;}
   .music-toggle.is-playing .icon-play{display:none;}
-  .music-toggle.is-playing .icon-pause{display:block;}
+  .music-toggle.is-playing .icon-pause{display:flex;}
 
-  .music-toggle .bars{display:flex; align-items:flex-end; gap:2px; height:16px;}
+  .music-toggle .bars{align-items:flex-end; gap:2px; height:16px;}
   .music-toggle .bars span{
     width:3px;
     background:#fff;
@@ -413,7 +416,7 @@
   }
 
   @media (max-width:560px){
-    .row{grid-template-columns:1fr;}
+    .row{grid-template-columns:1fr; gap:2px;}
     .row dt{padding-top:0;}
     .panel{padding:24px 18px;}
     .highlight{grid-template-columns:64px 1fr;}
@@ -424,10 +427,13 @@
 
 <header class="cover">
   <div class="wrap">
-    <p class="kicker">You're invited</p>
+    <figure class="hero-photo">
+      <img src="family-2026.jpg" alt="Khushbu, Imtiyaz and family">
+    </figure>
+    <p class="kicker">You're invited to a housewarming</p>
     <h1>Khushbu &amp; Imtiyaz<em>Welcome to our new home</em></h1>
-    <p class="lede">Four days in Bangalore — settling in together, the housewarming of our new home, a family day out, and time together before we say goodbye. We'd love for you to be there.</p>
-    <span class="dates">17 – 20 October 2026 &nbsp;·&nbsp; Bangalore</span>
+    <p class="lede">Join us as we step into our new home — a housewarming at the villa, a family day out at Wonderla, and a few relaxed days together in Bangalore. We'd love to have you with us.</p>
+    <span class="dates">17 – 20 October 2026, Bangalore</span>
   </div>
 </header>
 
@@ -437,39 +443,37 @@
       <h2>What's in store</h2>
       <p>A quick look at the days ahead.</p>
     </div>
-    <div class="highlight-list">
+    <div>
       <div class="highlight">
         <div class="hdate"><strong>17</strong>Sat</div>
         <div>
-          <h3>Rest &amp; reconnect</h3>
-          <p>Arrive in Bengaluru from different locations. If you reach before 3 pm, arrive at the "Home" directly and if you arrive after 3 pm, please check in at the Hotel so you can rest well at the hotel.</p>
+          <h3>Arrive &amp; settle in</h3>
+          <p>Arriving early? Come to us. Arriving later? Head straight to the hotel. The rest of the day is for settling in and resting.</p>
         </div>
       </div>
       <div class="highlight">
         <div class="hdate"><strong>18</strong>Sun</div>
         <div>
           <h3>Housewarming at the villa</h3>
-          <p>We step into our new home together, followed by lunch. We will show you around the new house.</p>
+          <p>A bus takes us to the new villa for the housewarming — the heart of the trip. We're back at the hotel by 6.</p>
         </div>
       </div>
       <div class="highlight">
         <div class="hdate"><strong>19</strong>Mon</div>
         <div>
           <h3>A day at Wonderla</h3>
-          <p>Slides, rides and a full day out as one big family — everyone, big and small.</p>
+          <p>Rides, slides and a full day out together, then dinner back at the hotel.</p>
         </div>
       </div>
       <div class="highlight">
         <div class="hdate"><strong>20</strong>Tue</div>
         <div>
           <h3>Until next time</h3>
-          <p>Everyone departs to their destinations. Farewell time.</p>
+          <p>One last breakfast together before everyone heads home.</p>
         </div>
       </div>
     </div>
   </div>
-</section>
-
 </section>
 
 <section class="itinerary" id="itinerary">
@@ -480,50 +484,53 @@
     </div>
 
     <div class="tablist" role="tablist" aria-label="Itinerary by day">
-      <button class="tab" role="tab" id="tab-17" aria-controls="panel-17" aria-selected="true" data-day="17"><strong>Sat 17</strong>Rest day</button>
-      <button class="tab" role="tab" id="tab-18" aria-controls="panel-18" aria-selected="false" data-day="18"><strong>Sun 18</strong>Housewarming</button>
-      <button class="tab" role="tab" id="tab-19" aria-controls="panel-19" aria-selected="false" data-day="19"><strong>Mon 19</strong>Wonderla</button>
-      <button class="tab" role="tab" id="tab-20" aria-controls="panel-20" aria-selected="false" data-day="20"><strong>Tue 20</strong>Departures</button>
+      <button class="tab" role="tab" id="tab-17" aria-controls="panel-17" aria-selected="true" data-day="17" style="--accent:#4F6D5A;"><strong>Sat 17</strong>Arrival</button>
+      <button class="tab" role="tab" id="tab-18" aria-controls="panel-18" aria-selected="false" tabindex="-1" data-day="18" style="--accent:#A85D14;"><strong>Sun 18</strong>Housewarming</button>
+      <button class="tab" role="tab" id="tab-19" aria-controls="panel-19" aria-selected="false" tabindex="-1" data-day="19" style="--accent:#1C7C8C;"><strong>Mon 19</strong>Wonderla</button>
+      <button class="tab" role="tab" id="tab-20" aria-controls="panel-20" aria-selected="false" tabindex="-1" data-day="20" style="--accent:#8C6B8F;"><strong>Tue 20</strong>Departures</button>
     </div>
 
     <!-- Day 17 -->
     <div class="panel" id="panel-17" role="tabpanel" aria-labelledby="tab-17" style="--accent:#4F6D5A; --accent-soft:#8FA98F;">
       <div class="panel-head">
         <h3>Saturday, 17th October</h3>
-        <span>Rest day / free day in Bangalore</span>
+        <span>Arrival &amp; settling in</span>
       </div>
       <dl class="rows">
-        <div class="row"><dt>Plans</dt><dd>No fixed plans — a free day at the Hotel to rest and catch up.</dd></div>
-        <div class="row"><dt>Breakfast</dt><dd>Home</dd></div>
-        <div class="row"><dt>Lunch</dt><dd>Home</dd></div>
-        <div class="row"><dt>Dinner</dt><dd>Home</dd></div>
-        <div class="row"><dt>Transport</dt><dd>—</dd></div>
+        <div class="row"><dt>Before 3 PM</dt><dd>Arriving early? Come to Salarpuria Sattva Greenage — hotel check-in starts at 2 PM.</dd></div>
+        <div class="row"><dt>After 3 PM</dt><dd>Head straight to Loop by Zolo, Silk Board, and freshen up at your convenience.</dd></div>
+        <div class="row"><dt>Rest of the day</dt><dd>Settle in and rest.</dd></div>
       </dl>
       <div class="venue">
         <div class="venue-card">
           <div>
-            <div class="v-name">Home</div>
-            <div class="v-addr">Salarpuria Sattva Greenage, Bengaluru</div>
+            <div class="v-name">Salarpuria Sattva Greenage</div>
+            <div class="v-addr">Bengaluru — for arrivals before 3 PM</div>
           </div>
           <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Salarpuria+Sattva+Greenage%2C+Bengaluru" target="_blank" rel="noopener">Open in Maps</a>
+        </div>
+        <div class="venue-card">
+          <div>
+            <div class="v-name">Loop by Zolo, Silk Board</div>
+            <div class="v-addr">BSR Akshaya Residency, NGR Layout, Roopena Agrahara, Bommanahalli, Bengaluru, Karnataka 560068</div>
+          </div>
+          <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=BSR+Akshaya+Residency%2C+NGR+Layout%2C+Roopena+Agrahara%2C+Bommanahalli%2C+Bengaluru%2C+Karnataka+560068" target="_blank" rel="noopener">Open in Maps</a>
         </div>
       </div>
     </div>
 
     <!-- Day 18 -->
-    <div class="panel" id="panel-18" role="tabpanel" aria-labelledby="tab-18" hidden style="--accent:#C97A1E; --accent-soft:#E3B36A;">
+    <div class="panel" id="panel-18" role="tabpanel" aria-labelledby="tab-18" hidden style="--accent:#A85D14; --accent-soft:#E3B36A;">
       <div class="panel-head">
         <h3>Sunday, 18th October</h3>
         <span>Housewarming at the villa</span>
       </div>
       <dl class="rows">
-        <div class="row"><dt>Morning</dt><dd>Leave home by bus at 10 AM for the villa</dd></div>
-        <div class="row"><dt>Midday</dt><dd>Housewarming ceremony, followed by lunch at the villa</dd></div>
-        <div class="row"><dt>Evening</dt><dd>Return by 5 PM</dd></div>
-        <div class="row"><dt>Breakfast</dt><dd>Home</dd></div>
-        <div class="row"><dt>Lunch</dt><dd>Housewarming lunch, at the villa</dd></div>
-        <div class="row"><dt>Dinner</dt><dd>Loop hotel</dd></div>
-        <div class="row"><dt>Transport</dt><dd>SRS Travels bus</dd></div>
+        <div class="row"><dt>Breakfast</dt><dd>At Loop by Zolo, Silk Board</dd></div>
+        <div class="row"><dt>9 AM</dt><dd>Bus pick-up in front of the hotel, to the new villa for the housewarming</dd></div>
+        <div class="row"><dt>Daytime</dt><dd>Housewarming celebrations at the villa</dd></div>
+        <div class="row"><dt>6 PM</dt><dd>Bus returns to the hotel</dd></div>
+        <div class="row"><dt>Dinner</dt><dd>At the hotel</dd></div>
       </dl>
       <div class="venue">
         <div class="venue-card">
@@ -532,10 +539,10 @@
             <div class="v-addr">Soulace by Modern Spaaces, Kada Agrahara, near Sompura, Dommasandra, Bengaluru, Karnataka 562125</div>
           </div>
           <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Soulace+by+Modern+Spaaces%2C+Kada+Agrahara%2C+Dommasandra%2C+Bengaluru%2C+Karnataka+562125" target="_blank" rel="noopener">Open in Maps</a>
-          </div>
+        </div>
         <div class="venue-card">
           <div>
-            <div class="v-name">Staying at: Loop by Zolo, Silk Board</div>
+            <div class="v-name">Loop by Zolo, Silk Board</div>
             <div class="v-addr">BSR Akshaya Residency, NGR Layout, Roopena Agrahara, Bommanahalli, Bengaluru, Karnataka 560068</div>
           </div>
           <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=BSR+Akshaya+Residency%2C+NGR+Layout%2C+Roopena+Agrahara%2C+Bommanahalli%2C+Bengaluru%2C+Karnataka+560068" target="_blank" rel="noopener">Open in Maps</a>
@@ -550,12 +557,10 @@
         <span>Wonderla day outing</span>
       </div>
       <dl class="rows">
-        <div class="row"><dt>Morning</dt><dd>Leave home at 8 AM by bus (45 km) for Wonderla</dd></div>
-        <div class="row"><dt>Evening</dt><dd>Leave Wonderla by 7 PM</dd></div>
+        <div class="row"><dt>8 AM</dt><dd>Bus departs for Wonderla</dd></div>
         <div class="row"><dt>Breakfast</dt><dd>At Wonderla</dd></div>
-        <div class="row"><dt>Lunch</dt><dd>At Wonderla</dd></div>
-        <div class="row"><dt>Dinner</dt><dd>Home</dd></div>
-        <div class="row"><dt>Transport</dt><dd>SRS Travels bus</dd></div>
+        <div class="row"><dt>7 PM</dt><dd>Leave Wonderla</dd></div>
+        <div class="row"><dt>Around 9 PM</dt><dd>Back at the hotel for dinner</dd></div>
       </dl>
       <div class="venue">
         <div class="venue-card">
@@ -575,12 +580,10 @@
         <span>Departures</span>
       </div>
       <dl class="rows">
-        <div class="row"><dt>Morning</dt><dd>Departures</dd></div>
-        <div class="row"><dt>Breakfast</dt><dd>Home</dd></div>
-        <div class="row"><dt>Lunch</dt><dd>Home</dd></div>
-        <div class="row"><dt>Dinner</dt><dd>Home</dd></div>
+        <div class="row"><dt>Breakfast</dt><dd>At Loop by Zolo, Silk Board</dd></div>
+        <div class="row"><dt>After breakfast</dt><dd>Departures</dd></div>
       </dl>
-      <p class="note">Travel details will depend on each family's departure time — do share yours with us once booked.</p>
+      <p class="note">Safe travels home — thank you for being part of this.</p>
     </div>
 
   </div>
@@ -588,18 +591,13 @@
 
 <footer>
   <div class="wrap">
-    <h2>We can't wait to celebrate with you</h2>
-    <p>Five days, one new home, and all of you around us — this is going to be one to remember.</p>
+    <h2>We can't wait to welcome you</h2>
+    <p>A new home is only complete with the people we love in it. See you soon.</p>
     <p class="signoff">With love,<br>Khushbu &amp; Imtiyaz</p>
   </div>
 </footer>
 
-<!--
-  Add your own audio file to the repo, in the same folder as this HTML file,
-  named exactly "celebration-song.mp3" — or edit the src below to match
-  whatever filename/path you use. Keep the file small (a few MB) so the
-  page loads quickly on mobile data.
--->
+<!-- Uses the same celebration-song.mp3 already in the repo. -->
 <audio id="bgm" loop preload="auto">
   <source src="celebration-song.mp3" type="audio/mpeg">
 </audio>
@@ -619,16 +617,24 @@
     panels[t.dataset.day] = document.getElementById('panel-' + t.dataset.day);
   });
 
-  function activate(day){
+  function activate(day, focus){
     tabs.forEach(function(t){
       var selected = t.dataset.day === day;
       t.setAttribute('aria-selected', selected ? 'true' : 'false');
+      t.tabIndex = selected ? 0 : -1;
       panels[t.dataset.day].hidden = !selected;
+      if (selected && focus) t.focus();
     });
   }
 
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){ activate(t.dataset.day); });
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ activate(t.dataset.day, false); });
+    t.addEventListener('keydown', function(e){
+      var next = null;
+      if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (next){ e.preventDefault(); activate(next.dataset.day, true); }
+    });
   });
 
   var bgm = document.getElementById('bgm');
@@ -640,21 +646,18 @@
     musicBtn.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
   }
 
-  bgm.preload = 'auto';
-
   function tryAutoplay(){
     var p = bgm.play();
     if (p && p.then){
       p.then(function(){ setPlayingUI(true); })
        .catch(function(){
-         // Blocked by the browser's autoplay policy — start on the visitor's first interaction instead.
+         // Blocked by the browser's autoplay policy: start on the visitor's first interaction instead.
+         var events = ['click','touchstart','scroll','keydown'];
          var start = function(){
            bgm.play().then(function(){ setPlayingUI(true); }).catch(function(){});
-           ['click','touchstart','scroll','keydown'].forEach(function(evt){
-             document.removeEventListener(evt, start);
-           });
+           events.forEach(function(evt){ document.removeEventListener(evt, start); });
          };
-         ['click','touchstart','scroll','keydown'].forEach(function(evt){
+         events.forEach(function(evt){
            document.addEventListener(evt, start, { once:true, passive:true });
          });
        });
